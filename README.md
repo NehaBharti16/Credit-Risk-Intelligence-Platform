@@ -28,48 +28,59 @@ Model Layer: LightGBM + SMOTE
 LLM Layer: Groq (llama-3.3-70b)
 
 ## 📁 Project Structure
+
+```text
 credit_risk_platform/
-├── data/                          # Dataset files (not in git)
-│   └── application_train.csv      # Home Credit dataset
-├── documents/                     # Project presentation PDF
-├── models/                        # Saved ML artifacts
+├── data/                           # Dataset files (not in git)
+│   └── application_train.csv       # Home Credit dataset
+│
+├── documents/                      # Project presentation PDF
+│
+├── models/                         # Saved ML artifacts
 │   ├── lgbm_model.joblib
 │   ├── encoders.joblib
 │   ├── threshold.joblib
 │   ├── rules_model.joblib
 │   └── business_rules.txt
+│
 ├── notebooks/
-│   ├── eda.ipynb                  # Exploratory Data Analysis
-│   └── eda.py                     # Converted notebook
+│   ├── eda.ipynb                   # Exploratory Data Analysis
+│   └── eda.py                      # Converted notebook
+│
 ├── src/
 │   ├── data/
-│   │   ├── loader.py              # Load dataset
-│   │   └── preprocessor.py        # Clean + encode data
+│   │   ├── loader.py               # Load dataset
+│   │   └── preprocessor.py         # Clean + encode data
+│   │
 │   ├── ml/
-│   │   ├── train.py               # Model training pipeline
-│   │   ├── predict.py             # Inference + SHAP
-│   │   ├── evaluate.py            # Metrics + ROC curve
-│   │   └── rules.py               # Business rule derivation
-│   ├── talk_to_data/
-│   │   ├── nl_to_sql.py           # NL → SQL with memory
-│   │   ├── query_runner.py        # Execute SQL on SQLite
-│   │   └── prompt_templates.py    # Prompts + validation
-│   └── utils/
-│       ├── config.py              # Settings + API keys
-│       ├── logger.py              # Logging setup
-│       ├── helpers.py             # Utility functions
-│       └── docker_utils.py        # Docker path utilities
+│   │   ├── train.py                # Model training pipeline
+│   │   ├── predict.py              # Inference + SHAP
+│   │   ├── evaluate.py             # Metrics + ROC curve
+│   │   └── rules.py                # Business rule derivation
+│   │
+│   └── talk_to_data/
+│       ├── nl_to_sql.py            # NL → SQL with memory
+│       ├── query_runner.py         # Execute SQL on SQLite
+│       └── prompt_templates.py     # Prompts + validation
+│
+├── utils/
+│   ├── config.py                   # Settings + API keys
+│   ├── logger.py                   # Logging setup
+│   ├── helpers.py                  # Utility functions
+│   └── docker_utils.py             # Docker path utilities
+│
 ├── sql/
-│   ├── schema.sql                 # DB schema
-│   └── credit_risk.db             # SQLite database
-├── app.py                         # Main Streamlit app
+│   ├── schema.sql                  # DB schema
+│   └── credit_risk.db              # SQLite database
+│
+├── app.py                          # Main Streamlit app
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore
 └── README.md
-
+```
 ## 🚀 Quick Start
 
 ### Prerequisites
