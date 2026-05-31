@@ -14,11 +14,11 @@ def load_artifacts():
 
 def get_risk_band(probability):
     if probability < 0.2:
-        return "🟢 Low Risk"
+        return "Low Risk"
     elif probability < 0.5:
-        return "🟡 Medium Risk"
+        return "Medium Risk"
     else:
-        return "🔴 High Risk"
+        return "High Risk"
 
 def predict_single(input_dict):
     """Predict risk for a single applicant"""

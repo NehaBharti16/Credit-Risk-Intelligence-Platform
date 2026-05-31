@@ -26,7 +26,7 @@ def derive_rules(X, y, max_depth=4):
         f.write("=== CREDIT RISK BUSINESS RULES ===\n\n")
         f.write(rules_text)
     
-    print("✅ Business rules saved to models/business_rules.txt")
+    print("Business rules saved to models/business_rules.txt")
     joblib.dump(dt, "./models/rules_model.joblib")
     
     return dt, rules_text
@@ -60,46 +60,46 @@ def get_rule_based_decision(input_dict):
     
     # Rule 1: Age
     if age_years < 30:
-        rules.append("⚠️ Young applicant (age < 30) — Higher default risk")
+        rules.append("Young applicant (age < 30) — Higher default risk")
         risk_flags += 1
     else:
-        rules.append("✅ Applicant age is favorable")
+        rules.append("Applicant age is favorable")
     
     # Rule 2: Loan to income ratio
     if loan_income_ratio > 5:
-        rules.append("⚠️ High loan-to-income ratio (>5x) — Risky")
+        rules.append("High loan-to-income ratio (>5x) — Risky")
         risk_flags += 1
     else:
-        rules.append("✅ Loan-to-income ratio is acceptable")
+        rules.append("Loan-to-income ratio is acceptable")
     
     # Rule 3: Employment
     if employed_years < 2:
-        rules.append("⚠️ Short employment history (<2 years) — Higher risk")
+        rules.append("Short employment history (<2 years) — Higher risk")
         risk_flags += 1
     else:
-        rules.append("✅ Employment history is stable")
+        rules.append("Employment history is stable")
     
     # Rule 4: Education
     if education in ['Lower secondary', 'Secondary / secondary special']:
-        rules.append("⚠️ Lower education level — Slightly higher risk")
+        rules.append("Lower education level — Slightly higher risk")
         risk_flags += 1
     else:
-        rules.append("✅ Education level is favorable")
+        rules.append("Education level is favorable")
     
     # Rule 5: Children
     if children > 3:
-        rules.append("⚠️ Many dependents (>3 children) — Financial stress risk")
+        rules.append("Many dependents (>3 children) — Financial stress risk")
         risk_flags += 1
     else:
-        rules.append("✅ Number of dependents is manageable")
+        rules.append("Number of dependents is manageable")
     
     # Final rule decision
     if risk_flags == 0:
-        decision = "✅ RULE-BASED: APPROVE"
+        decision = "RULE-BASED: APPROVE"
     elif risk_flags <= 2:
-        decision = "⚠️ RULE-BASED: REVIEW CAREFULLY"
+        decision = "RULE-BASED: REVIEW CAREFULLY"
     else:
-        decision = "❌ RULE-BASED: REJECT"
+        decision = "RULE-BASED: REJECT"
     
     return {
         "rules_applied": rules,

@@ -38,7 +38,7 @@ def plot_roc_curve(y_true, y_pred_proba,
     plt.tight_layout()
     plt.savefig(save_path, dpi=100, bbox_inches='tight')
     plt.close()
-    print(f"✅ ROC+PR curves saved to {save_path}")
+    print(f"ROC+PR curves saved to {save_path}")
     return auc
 
 def plot_confusion_matrix(y_true, y_pred,
@@ -64,7 +64,7 @@ def plot_confusion_matrix(y_true, y_pred,
     plt.tight_layout()
     plt.savefig(save_path, dpi=100, bbox_inches='tight')
     plt.close()
-    print(f"✅ Confusion matrix saved to {save_path}")
+    print(f"Confusion matrix saved to {save_path}")
 
 def get_evaluation_metrics(y_true, y_pred_proba, threshold=0.2):
     y_pred = (y_pred_proba >= threshold).astype(int)
