@@ -1,0 +1,23 @@
+# Environment - SECRET, never push
+.env
+
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data files (too large for git - download from Kaggle)
+data/
+
+# Keep models (evaluator needs them to run app)
+# models/  ← intentionally NOT ignored

@@ -1,0 +1,48 @@
+=== CREDIT RISK BUSINESS RULES ===
+
+|--- EXT_SOURCE_2 <= 0.46
+|   |--- EXT_SOURCE_3 <= 0.54
+|   |   |--- EXT_SOURCE_3 <= 0.31
+|   |   |   |--- EXT_SOURCE_2 <= 0.21
+|   |   |   |   |--- class: 1
+|   |   |   |--- EXT_SOURCE_2 >  0.21
+|   |   |   |   |--- class: 1
+|   |   |--- EXT_SOURCE_3 >  0.31
+|   |   |   |--- EXT_SOURCE_2 <= 0.17
+|   |   |   |   |--- class: 1
+|   |   |   |--- EXT_SOURCE_2 >  0.17
+|   |   |   |   |--- class: 1
+|   |--- EXT_SOURCE_3 >  0.54
+|   |   |--- EXT_SOURCE_2 <= 0.25
+|   |   |   |--- DAYS_BIRTH <= -19831.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- DAYS_BIRTH >  -19831.50
+|   |   |   |   |--- class: 1
+|   |   |--- EXT_SOURCE_2 >  0.25
+|   |   |   |--- CODE_GENDER <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- CODE_GENDER >  0.50
+|   |   |   |   |--- class: 0
+|--- EXT_SOURCE_2 >  0.46
+|   |--- EXT_SOURCE_3 <= 0.33
+|   |   |--- EXT_SOURCE_3 <= 0.22
+|   |   |   |--- EXT_SOURCE_2 <= 0.65
+|   |   |   |   |--- class: 1
+|   |   |   |--- EXT_SOURCE_2 >  0.65
+|   |   |   |   |--- class: 1
+|   |   |--- EXT_SOURCE_3 >  0.22
+|   |   |   |--- EXT_SOURCE_1 <= 0.53
+|   |   |   |   |--- class: 1
+|   |   |   |--- EXT_SOURCE_1 >  0.53
+|   |   |   |   |--- class: 0
+|   |--- EXT_SOURCE_3 >  0.33
+|   |   |--- EXT_SOURCE_3 <= 0.55
+|   |   |   |--- EXT_SOURCE_2 <= 0.65
+|   |   |   |   |--- class: 0
+|   |   |   |--- EXT_SOURCE_2 >  0.65
+|   |   |   |   |--- class: 0
+|   |   |--- EXT_SOURCE_3 >  0.55
+|   |   |   |--- EXT_SOURCE_2 <= 0.65
+|   |   |   |   |--- class: 0
+|   |   |   |--- EXT_SOURCE_2 >  0.65
+|   |   |   |   |--- class: 0
