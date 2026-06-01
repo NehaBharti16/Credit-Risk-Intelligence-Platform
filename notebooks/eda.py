@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[12]:
-
-
 # ── BEFORE PREPROCESSING - RAW DATA ──────────────────────
 import sys
 sys.path.append('..')
@@ -27,8 +24,6 @@ df_raw[['AMT_INCOME_TOTAL','AMT_CREDIT',
         'DAYS_BIRTH','DAYS_EMPLOYED',
         'CODE_GENDER','TARGET']].head()
 
-
-# In[14]:
 
 
 # ── DATA QUALITY PROBLEMS IN RAW DATA ────────────────────
@@ -58,9 +53,6 @@ print(f"   Examples : {list(cat_cols[:4])}")
 print(f"\n Problem 4: No Derived Features")
 print(f"   No AGE_YEARS, CREDIT_INCOME_RATIO etc.")
 print(f"   Raw feature count: {df_raw.shape[1]}")
-
-
-# In[16]:
 
 
 # ── AFTER PREPROCESSING ──────────────────────────────────
@@ -99,8 +91,6 @@ print(f"   Features : {df_raw.shape[1]} → {df_processed.shape[1]}")
 print(f"   Missing  : {df_raw.isnull().sum().sum():,} → 0")
 print(f"   ML Ready : Yes")
 
-
-# In[17]:
 
 
 # ── BEFORE vs AFTER CHART ────────────────────────────────
@@ -157,8 +147,6 @@ df['EMPLOYMENT_YEARS'] = (-df['DAYS_EMPLOYED'].clip(upper=0)/365)
 print(" df ready for EDA!")
 
 
-# In[18]:
-
 
 # Target Distribution
 print(f"Total Applications: {len(df):,}")
@@ -191,7 +179,6 @@ plt.show()
 print("Chart saved!")
 
 
-# In[19]:
 
 
 # Age and Income Analysis
@@ -223,7 +210,7 @@ print("Business Insight 1: Younger applicants default more")
 print("Business Insight 2: Lower income applicants default more")
 
 
-# In[21]:
+
 
 
 # Loan Amount Analysis
@@ -258,7 +245,7 @@ print("Business Insight 3: Higher loan-to-income ratio = higher default risk")
 print("Business Insight 4: Cash loans have higher default rate than revolving loans")
 
 
-# In[22]:
+
 
 
 # Gender and Employment Analysis
@@ -291,7 +278,7 @@ print("Business Insight 5: Males default more than females")
 print("Business Insight 6: Shorter employment history = higher default risk")
 
 
-# In[23]:
+
 
 
 # Correlation Heatmap
@@ -311,7 +298,7 @@ plt.show()
 print("Business Insight 7: DAYS_BIRTH (age) has negative correlation with default")
 
 
-# In[24]:
+
 
 
 # Data Quality Summary
@@ -339,7 +326,7 @@ plt.show()
 print("EDA Complete! All charts saved to data/ folder")
 
 
-# In[ ]:
+
 
 
 
