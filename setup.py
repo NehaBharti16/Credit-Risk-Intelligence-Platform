@@ -4,13 +4,13 @@ import subprocess
 
 def run_step(description, func):
     print(f"\n{'='*50}")
-    print(f"⏳ {description}")
+    print(f"{description}")
     print('='*50)
     try:
         func()
-        print(f"✅ {description} - DONE!")
+        print(f"{description} - DONE!")
     except Exception as e:
-        print(f"❌ {description} - FAILED: {e}")
+        print(f"{description} - FAILED: {e}")
         raise
 
 def step1_train_model():
@@ -53,14 +53,14 @@ def step5_verify_setup():
         ("./documents/project_presentation.pdf", "Presentation PDF"),
     ]
     
-    print("\n📋 VERIFICATION CHECKLIST:")
+    print("\nVERIFICATION CHECKLIST:")
     all_good = True
     for path, name in checks:
         if os.path.exists(path):
             size = os.path.getsize(path)
-            print(f"  ✅ {name} ({size:,} bytes)")
+            print(f"  {name} ({size:,} bytes)")
         else:
-            print(f"  ❌ {name} - MISSING!")
+            print(f"  {name} - MISSING!")
             all_good = False
     
     return all_good
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     # Check dataset exists
     if not os.path.exists("./data/application_train.csv"):
-        print("\n❌ ERROR: Dataset not found!")
+        print("\nERROR: Dataset not found!")
         print("Please download from Kaggle and place in data/ folder:")
         print("https://www.kaggle.com/competitions/home-credit-default-risk/data")
         sys.exit(1)
@@ -91,14 +91,14 @@ if __name__ == "__main__":
     
     # Verify
     print(f"\n{'='*50}")
-    print("⏳ Verifying Setup...")
+    print("Verifying Setup...")
     all_good = step5_verify_setup()
     
     if all_good:
-        print("\n🎉 SETUP COMPLETE!")
+        print("\nSETUP COMPLETE!")
         print("="*50)
         print("Run the app with:")
         print("  streamlit run app.py")
         print("="*50)
     else:
-        print("\n⚠️ Some files are missing. Check errors above.")
+        print("\nSome files are missing. Check errors above.")

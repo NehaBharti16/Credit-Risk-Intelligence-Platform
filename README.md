@@ -2,18 +2,18 @@
 
 An AI-powered credit risk platform built on the Home Credit Default Risk dataset from Kaggle.
 
-## 🎯 Overview
+## Overview
 Design and build a lightweight AI-powered platform on a structured dataset. This platform tests ability to work across the full AI engineering stack from data analysis to a deployed application.
 
-## ✨ Features
-- 📊 **EDA Dashboard** — Interactive charts and 7 business insights
-- 🤖 **Risk Prediction** — LightGBM model with SMOTE (AUC: 0.754)
-- 🔍 **Explainable AI** — SHAP values showing why each prediction was made
-- 📜 **Business Rules** — Interpretable decision rules derived from ML
-- 💬 **Talk to Data** — Natural language to SQL using Groq LLM
-- 🐳 **Dockerized** — One command deployment
+## Features
+- **EDA Dashboard** — Interactive charts and 7 business insights
+- **Risk Prediction** — LightGBM model with SMOTE (AUC: 0.754)
+- **Explainable AI** — SHAP values showing why each prediction was made
+- **Business Rules** — Interpretable decision rules derived from ML
+- **Talk to Data** — Natural language to SQL using Groq LLM
+- **Dockerized** — One command deployment
 
-## 🏗️ Architecture
+## Architecture
 User → Streamlit UI (5 sections)
 ↓
 ┌──────────────────────────────┐
@@ -27,7 +27,7 @@ Data Layer: CSV + SQLite DB
 Model Layer: LightGBM + SMOTE
 LLM Layer: Groq (llama-3.3-70b)
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 credit_risk_platform/
@@ -81,7 +81,7 @@ credit_risk_platform/
 ├── .gitignore
 └── README.md
 ```
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.10+
@@ -129,13 +129,13 @@ python setup.py
 streamlit run app.py
 ```
 
-## 🔑 Environment Variables
+## Environment Variables
 GROQ_API_KEY=your_groq_api_key_here
 DB_PATH=./sql/credit_risk.db
 APP_HOST=0.0.0.0
 APP_PORT=8501
 
-## 📊 Model Details
+## Model Details
 
 ### Algorithm: LightGBM Classifier
 LightGBM was chosen because:
@@ -161,13 +161,13 @@ LightGBM was chosen because:
 | Default F1 | 0.30 |
 | Features Used | 127 |
 
-## 🔍 Explainable AI (SHAP)
+## Explainable AI (SHAP)
 Every prediction includes SHAP values showing:
 - Which features increased the risk score (red)
 - Which features decreased the risk score (green)
 - Magnitude of each feature's impact
 
-## 📜 Business Rules
+## Business Rules
 Interpretable rules derived from Decision Tree + EDA:
 
 | Rule | Condition | Risk Impact |
@@ -180,7 +180,7 @@ Interpretable rules derived from Decision Tree + EDA:
 
 Key finding: **EXT_SOURCE_2 and EXT_SOURCE_3** (external credit scores) are the strongest predictors of default.
 
-## 💬 Prompt Engineering & Hallucination Control
+## Prompt Engineering & Hallucination Control
 - System prompt with strict schema definition
 - SQL validation before execution (SELECT only)
 - Conversation memory (last 3 exchanges)
@@ -188,7 +188,7 @@ Key finding: **EXT_SOURCE_2 and EXT_SOURCE_3** (external credit scores) are the 
 - Column whitelist to prevent hallucinations
 - Model: llama-3.3-70b-versatile (Groq)
 
-## 📈 EDA Business Insights
+## EDA Business Insights
 1. Younger applicants (< 30) default more
 2. Lower income applicants default more  
 3. Higher loan-to-income ratio = higher risk
@@ -197,7 +197,7 @@ Key finding: **EXT_SOURCE_2 and EXT_SOURCE_3** (external credit scores) are the 
 6. Shorter employment history = higher default risk
 7. Lower education level = higher default rate
 
-## 🛠️ Tech Stack
+## Tech Stack
 | Component | Technology |
 |-----------|-----------|
 | ML Model | LightGBM + SMOTE |
@@ -208,14 +208,14 @@ Key finding: **EXT_SOURCE_2 and EXT_SOURCE_3** (external credit scores) are the 
 | Deployment | Docker + Docker Compose |
 | Language | Python 3.10 |
 
-## ⚠️ Known Limitations
+## Known Limitations
 - Default recall (0.31) can be improved with more feature engineering
 - Dataset not included in repo (must download from Kaggle)
 - LLM responses depend on Groq API availability
 - SHAP computation adds ~2-3 seconds to prediction time
 - Building-related features have ~70% missing values
 
-## 🔧 Possible Improvements
+## Possible Improvements
 - Add more dataset files (bureau.csv, previous_application.csv)
 - Implement XGBoost ensemble for better recall
 - Add authentication to the UI
